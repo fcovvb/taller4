@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import vista.Agregar;
 import vista.Videoclub;
 import vista.Eliminar;
+import vista.InterfazNueva;
 import vista.Mostrar;
 
 /**
@@ -29,6 +30,7 @@ public class Controlador implements ActionListener,MouseListener {
     public static Agregar interfazagregar = new Agregar();
     public static Mostrar interfazmostrar = new Mostrar();
     public static Eliminar interfazeliminar = new Eliminar();
+    public static InterfazNueva interfaznueva = new InterfazNueva();
     
     //modelo
     private Registro modelo = new Registro();
@@ -38,6 +40,12 @@ public class Controlador implements ActionListener,MouseListener {
         boton_eliminar,
         boton_buscar,
         boton_modificar,
+        boton_consulta1,
+        boton_consulta2,
+        boton_consulta3,
+        boton_consulta4,
+        boton_consulta5,
+        boton_consulta6
     }
     
     public Controlador() {
@@ -47,10 +55,12 @@ public class Controlador implements ActionListener,MouseListener {
             SwingUtilities.updateComponentTreeUI(interfazagregar);
             SwingUtilities.updateComponentTreeUI(interfazmostrar);
             SwingUtilities.updateComponentTreeUI(interfazeliminar);
+            SwingUtilities.updateComponentTreeUI(interfaznueva);
             this.interfaz.setTitle("VideoBusterr");
             interfazagregar.setTitle("Agregar Película");
             interfazmostrar.setTitle("Buscar / Mostrar Películas");
             interfazeliminar.setTitle("Eliminar Película");
+            interfaznueva.setTitle("Interfaz de Consultas");
         } catch (UnsupportedLookAndFeelException ex) {}
           catch (ClassNotFoundException ex) {}
           catch (InstantiationException ex) {}
@@ -68,6 +78,18 @@ public class Controlador implements ActionListener,MouseListener {
         interfazmostrar.boton_buscar.addActionListener(this);
         interfazmostrar.boton_modificar.setActionCommand( "boton_modificar" );
         interfazmostrar.boton_modificar.addActionListener(this);
+        interfaznueva.boton_consulta1.setActionCommand( "boton_consulta1" );
+        interfaznueva.boton_consulta1.addActionListener(this);
+        interfaznueva.boton_consulta2.setActionCommand( "boton_consulta2" );
+        interfaznueva.boton_consulta2.addActionListener(this);
+        interfaznueva.boton_consulta3.setActionCommand( "boton_consulta3" );
+        interfaznueva.boton_consulta3.addActionListener(this);
+        interfaznueva.boton_consulta4.setActionCommand( "boton_consulta4" );
+        interfaznueva.boton_consulta4.addActionListener(this);
+        interfaznueva.boton_consulta5.setActionCommand( "boton_consulta5" );
+        interfaznueva.boton_consulta5.addActionListener(this);
+        interfaznueva.boton_consulta6.setActionCommand( "boton_consulta6" );
+        interfaznueva.boton_consulta6.addActionListener(this);
         
         //Interactuar con la tabla
         interfazmostrar.tabla.addMouseListener(this);
@@ -213,6 +235,24 @@ public class Controlador implements ActionListener,MouseListener {
                 }
                 interfazmostrar.tabla.setModel(this.modelo.mostrar());
               
+            break;
+            case boton_consulta1:
+                // stuff
+            break;
+            case boton_consulta2:
+                // stuff
+            break;
+            case boton_consulta3:
+                // stuff
+            break;
+            case boton_consulta4:
+                // stuff
+            break;
+            case boton_consulta5:
+                // stuff
+            break;
+            case boton_consulta6:
+                // stuff
             break;
         }  
     }
