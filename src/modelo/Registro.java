@@ -62,6 +62,21 @@ public class Registro {
         return res;
     }
     
+    public boolean eliminarConsulta5(){
+        boolean res=false;
+        String q = " DELETE FROM taller3.pelicula WHERE precio > 2000; " ;
+        try {
+            PreparedStatement pstm = conectara.conectar().prepareStatement(q);
+            if (pstm.executeUpdate() == 1){
+                res=true;
+            }
+            pstm.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return res;
+    }
+    
     public boolean modificar(int codigo, int categoria, String nombre, int precio, String formato4k){
         String q= "UPDATE taller3.pelicula SET nombre='"+nombre+"', precio='"+precio+"', id_categoria='"+categoria+"', formato4k ='"+formato4k+"'WHERE codigo='"+codigo+"';";
         try {
