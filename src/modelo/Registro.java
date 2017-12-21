@@ -62,7 +62,7 @@ public class Registro {
         return res;
     }
     
-    public boolean eliminarConsulta5(){
+    public boolean Consulta5(){
         boolean res=false;
         String q = " DELETE FROM taller3.pelicula WHERE precio > 2000; " ;
         try {
