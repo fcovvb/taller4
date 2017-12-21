@@ -169,6 +169,49 @@ public class Registro {
         return nombrecat;
     }
     
+    
+    //consulta1
+    public boolean Consulta1(int codigo, String nombre, int precio, String formato4k){
+        if( valida_datos(codigo, nombre, precio) ) {
+            //Se arma la consulta
+            String q=" INSERT INTO taller3.pelicula(codigo,id_categoria,nombre,precio,formato4k) "
+                    + "VALUES ( '" + codigo + "',5,'"+ nombre +"','" + precio +"','" + formato4k +"');"; // 5 -> CATEGORIA DRAMA
+            //se ejecuta la consulta
+            try {
+                PreparedStatement pstm = conectara.conectar().prepareStatement(q);
+                pstm.execute();
+                pstm.close();
+                return true;
+            }catch(SQLException e){
+                System.err.println( e.getMessage() );
+            }
+            return false;
+        }
+        else
+        return false;
+    }
+    
+    //consulta 2
+     public boolean Consulta2(int codigo, String nombre, int precio, String formato4k){
+        if( valida_datos(codigo, nombre, precio) ) {
+            //Se arma la consulta
+            String q=" INSERT INTO taller3.pelicula(codigo,id_categoria,nombre,precio,formato4k) "
+                    + "VALUES ( '" + codigo + "',6,'"+ nombre +"','" + precio +"','" + formato4k +"');"; // 6 -> CATEGORIA COMEDIA
+            //se ejecuta la consulta
+            try {
+                PreparedStatement pstm = conectara.conectar().prepareStatement(q);
+                pstm.execute();
+                pstm.close();
+                return true;
+            }catch(SQLException e){
+                System.err.println( e.getMessage() );
+            }
+            return false;
+        }
+        else
+        return false;
+    }
+    
     public boolean Consulta5(){
         boolean res=false;
         String q = " DELETE FROM taller3.pelicula WHERE precio > 2000; " ;
