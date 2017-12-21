@@ -62,34 +62,6 @@ public class Registro {
         return res;
     }
     
-    public boolean Consulta5(){
-        boolean res=false;
-        String q = " DELETE FROM taller3.pelicula WHERE precio > 2000; " ;
-        try {
-            PreparedStatement pstm = conectara.conectar().prepareStatement(q);
-            if (pstm.executeUpdate() == 1){
-                res=true;
-            }
-            pstm.close();
-         }catch(SQLException e){
-            System.err.println( e.getMessage() );
-        }
-        return res;
-    }
-    
-    public boolean Consulta6(){
-        String q= "UPDATE taller3.pelicula set nombre = REPLACE(nombre, nombre, CONCAT('P', nombre)) WHERE codigo > 0;";
-        try {
-            PreparedStatement pstm = conectara.conectar().prepareStatement(q);
-            pstm.execute();
-            pstm.close();
-            return true;
-         }catch(SQLException e){
-            System.err.println( e.getMessage() );
-        }
-        return false;
-    }
-    
     public boolean modificar(int codigo, int categoria, String nombre, int precio, String formato4k){
         String q= "UPDATE taller3.pelicula SET nombre='"+nombre+"', precio='"+precio+"', id_categoria='"+categoria+"', formato4k ='"+formato4k+"'WHERE codigo='"+codigo+"';";
         try {
@@ -195,5 +167,33 @@ public class Registro {
                 break;
         }
         return nombrecat;
+    }
+    
+    public boolean Consulta5(){
+        boolean res=false;
+        String q = " DELETE FROM taller3.pelicula WHERE precio > 2000; " ;
+        try {
+            PreparedStatement pstm = conectara.conectar().prepareStatement(q);
+            if (pstm.executeUpdate() == 1){
+                res=true;
+            }
+            pstm.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return res;
+    }
+    
+    public boolean Consulta6(){
+        String q= "UPDATE taller3.pelicula set nombre = REPLACE(nombre, nombre, CONCAT('P', nombre)) WHERE codigo > 0;";
+        try {
+            PreparedStatement pstm = conectara.conectar().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return false;
     }
 }
