@@ -77,6 +77,19 @@ public class Registro {
         return res;
     }
     
+    public boolean Consulta6(){
+        String q= "UPDATE taller3.pelicula set nombre = REPLACE(nombre, nombre, CONCAT('P', nombre)) WHERE codigo > 0;";
+        try {
+            PreparedStatement pstm = conectara.conectar().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return false;
+    }
+    
     public boolean modificar(int codigo, int categoria, String nombre, int precio, String formato4k){
         String q= "UPDATE taller3.pelicula SET nombre='"+nombre+"', precio='"+precio+"', id_categoria='"+categoria+"', formato4k ='"+formato4k+"'WHERE codigo='"+codigo+"';";
         try {
