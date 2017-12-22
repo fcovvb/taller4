@@ -45,7 +45,8 @@ public class Controlador implements ActionListener,MouseListener {
         boton_consulta3,
         boton_consulta4,
         boton_consulta5,
-        boton_consulta6
+        boton_consulta6,
+        boton_limpiar
     }
     
     public Controlador() {
@@ -90,6 +91,8 @@ public class Controlador implements ActionListener,MouseListener {
         interfaznueva.boton_consulta5.addActionListener(this);
         interfaznueva.boton_consulta6.setActionCommand( "boton_consulta6" );
         interfaznueva.boton_consulta6.addActionListener(this);
+        interfaznueva.boton_limpiar.setActionCommand( "boton_limpiar" );
+        interfaznueva.boton_limpiar.addActionListener(this);
         
         //Interactuar con la tabla
         interfazmostrar.tabla.addMouseListener(this);
@@ -321,6 +324,12 @@ public class Controlador implements ActionListener,MouseListener {
             break;
             case boton_consulta6:
                 // stuff
+            break;
+            case boton_limpiar:
+                interfaznueva.tf_consultas_codigo.setText(null);
+                interfaznueva.tf_consultas_nombre.setText(null);
+                interfaznueva.tf_consultas_precio.setText(null);
+                interfaznueva.tf_consultas_codigo.grabFocus();
             break;
         }  
     }
