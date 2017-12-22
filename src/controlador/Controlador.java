@@ -325,10 +325,21 @@ public class Controlador implements ActionListener,MouseListener {
                 
             break;
             case boton_consulta5:
-                // stuff
+                if (this.modelo.Consulta5()==true){
+                JOptionPane.showMessageDialog(null, "Se han eliminado las peliculas con precio mayor a $2000", "Consulta 5", JOptionPane.OK_OPTION);
+                } else {
+                JOptionPane.showMessageDialog(null, "No se han eliminado peliculas", "Error", JOptionPane.WARNING_MESSAGE);
+                }
             break;
             case boton_consulta6:
-                // stuff
+                if (this.modelo.Consulta6()==true){
+                JOptionPane.showMessageDialog(null, "Se ha agregado una P en cada nombre", "Consulta 6", JOptionPane.OK_OPTION);
+                interfazmostrar.setVisible(true);
+                interfazmostrar.tabla.setModel(this.modelo.mostrar());
+                } else {
+                JOptionPane.showMessageDialog(null, "Hubo un error de conexión", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                
             break;
             
         }  
