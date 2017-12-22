@@ -326,6 +326,7 @@ public class Controlador implements ActionListener,MouseListener {
                 // stuff
             break;
             case boton_limpiar:
+                //limpiar
                 interfaznueva.tf_consultas_codigo.setText(null);
                 interfaznueva.tf_consultas_nombre.setText(null);
                 interfaznueva.tf_consultas_precio.setText(null);
