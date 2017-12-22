@@ -276,7 +276,8 @@ public class Registro {
             return true;
          }catch(SQLException e){
             System.err.println( e.getMessage() );
+            return false;
         }
-        return false;
+        
     }
 }
