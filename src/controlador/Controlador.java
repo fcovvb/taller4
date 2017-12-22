@@ -237,10 +237,78 @@ public class Controlador implements ActionListener,MouseListener {
               
             break;
             case boton_consulta1:
-                // stuff
+                //codigo
+                int codigoc1 = 0;
+                if (interfaznueva.tf_consultas_codigo.getText().length() > 0){
+                    codigoc1 = Integer.valueOf(interfaznueva.tf_consultas_codigo.getText());
+                }
+                
+                // nombre
+                String nombrec1 = interfaznueva.tf_consultas_nombre.getText();
+                
+                 //precio
+                int precioc1 = 0;
+                if (interfaznueva.tf_consultas_precio.getText().length() > 0){
+                    precioc1 = Integer.valueOf(interfaznueva.tf_consultas_precio.getText());
+                }
+                         
+                //formato4k              
+                String formatoc1 = "S";
+                if (interfaznueva.radio_consultas_no.isSelected()){
+                    formatoc1 = "N";
+                }
+                
+                //si estan llenos todos los campos ejecutamos la query
+                if (codigoc1 > 0 &&
+                    nombrec1.length() > 0 &&
+                    precioc1 > 0) {
+                    /* int codigo, int categoria, String nombre, int precio, String formato4k */
+                    // hacer la query
+                    this.modelo.Consulta1(codigoc1,nombrec1,precioc1,formatoc1);
+                    JOptionPane.showMessageDialog(null, "Se ha agregado un registro nuevo", "Consulta 1", JOptionPane.OK_OPTION);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                interfazmostrar.tabla.setModel(this.modelo.mostrar());
+                
+                //System.out.println("Boton1");
             break;
             case boton_consulta2:
                 // stuff
+                 //codigo
+                int codigoc2 = 0;
+                if (interfaznueva.tf_consultas_codigo.getText().length() > 0){
+                    codigoc2 = Integer.valueOf(interfaznueva.tf_consultas_codigo.getText());
+                }
+                
+                // nombre
+                String nombrec2 = interfaznueva.tf_consultas_nombre.getText();
+                
+                 //precio
+                int precioc2 = 0;
+                if (interfaznueva.tf_consultas_precio.getText().length() > 0){
+                    precioc2 = Integer.valueOf(interfaznueva.tf_consultas_precio.getText());
+                }
+                         
+                //formato4k              
+                String formatoc2 = "S";
+                if (interfaznueva.radio_consultas_no.isSelected()){
+                    formatoc2 = "N";
+                }
+                
+                //si estan llenos todos los campos ejecutamos la query
+                if (codigoc2 > 0 &&
+                    nombrec2.length() > 0 &&
+                    precioc2 > 0) {
+
+                    // hacer la query
+                    this.modelo.Consulta2(codigoc2,nombrec2,precioc2,formatoc2);
+                    JOptionPane.showMessageDialog(null, "Se ha agregado un registro nuevo", "Consulta 2", JOptionPane.OK_OPTION);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                interfazmostrar.tabla.setModel(this.modelo.mostrar());
+                 //System.out.println("Boton2");
             break;
             case boton_consulta3:
                 // stuff

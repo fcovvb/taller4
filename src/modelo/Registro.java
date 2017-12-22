@@ -165,6 +165,12 @@ public class Registro {
                 break;
             case 4: nombrecat = "Musical";
                 break;
+            case 5: nombrecat = "Drama";
+                break;
+            case 6: nombrecat = "Comedia";
+                break;
+            case 7: nombrecat = "Romance";
+                break;
         }
         return nombrecat;
     }
