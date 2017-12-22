@@ -217,6 +217,40 @@ public class Registro {
         else
         return false;
     }
+     
+     public DefaultTableModel Consulta4(){
+     DefaultTableModel tablemodel = new DefaultTableModel();
+     int registros = 0;
+     String[] columNames = {"Código","Nombre","Categoría","Precio","Calidad 4k"};
+     try{
+        PreparedStatement pstm = conectara.conectar().prepareStatement( "SELECT count(*) as total FROM taller3.pelicula WHERE id_categoria = 7;"); //7 = romance
+        ResultSet res = pstm.executeQuery();
+        res.next();
+        registros = res.getInt("total");
+        res.close();
+     }catch(SQLException e){
+        System.err.println( e.getMessage() );
+     }
+     Object[][] data = new String[registros][9];
+     try{
+        PreparedStatement pstm = conectara.conectar().prepareStatement("SELECT * FROM taller3.pelicula WHERE id_categoria = 7;");//7 = romance
+        ResultSet res = pstm.executeQuery();
+        int i=0;
+        while(res.next()){
+               data[i][0] = res.getString( "codigo" );
+               data[i][1] = res.getString( "nombre" );
+               data[i][2] = nombre_categoria (Integer.parseInt(res.getString( "id_categoria" )));
+               data[i][3] = res.getString( "precio" );
+               data[i][4] = res.getString( "formato4k" );
+           i++;
+        }
+        res.close();
+        tablemodel.setDataVector(data, columNames );
+        }catch(SQLException e){
+           System.err.println( e.getMessage() );
+       }
+       return tablemodel;
+   }
     
     public boolean Consulta5(){
         boolean res=false;

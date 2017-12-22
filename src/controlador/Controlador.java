@@ -83,8 +83,6 @@ public class Controlador implements ActionListener,MouseListener {
         interfaznueva.boton_consulta1.addActionListener(this);
         interfaznueva.boton_consulta2.setActionCommand( "boton_consulta2" );
         interfaznueva.boton_consulta2.addActionListener(this);
-        interfaznueva.boton_consulta3.setActionCommand( "boton_consulta3" );
-        interfaznueva.boton_consulta3.addActionListener(this);
         interfaznueva.boton_consulta4.setActionCommand( "boton_consulta4" );
         interfaznueva.boton_consulta4.addActionListener(this);
         interfaznueva.boton_consulta5.setActionCommand( "boton_consulta5" );
@@ -313,11 +311,18 @@ public class Controlador implements ActionListener,MouseListener {
                 interfazmostrar.tabla.setModel(this.modelo.mostrar());
                  //System.out.println("Boton2");
             break;
-            case boton_consulta3:
-                // stuff
+            case boton_limpiar: // consulta 3
+                //limpiar
+                interfaznueva.tf_consultas_codigo.setText(null);
+                interfaznueva.tf_consultas_nombre.setText(null);
+                interfaznueva.tf_consultas_precio.setText(null);
+                interfaznueva.tf_consultas_codigo.grabFocus();
             break;
             case boton_consulta4:
                 // stuff
+                interfazmostrar.setVisible(true);
+                interfazmostrar.tabla.setModel(this.modelo.Consulta4());
+                
             break;
             case boton_consulta5:
                 // stuff
@@ -325,13 +330,7 @@ public class Controlador implements ActionListener,MouseListener {
             case boton_consulta6:
                 // stuff
             break;
-            case boton_limpiar:
-                //limpiar
-                interfaznueva.tf_consultas_codigo.setText(null);
-                interfaznueva.tf_consultas_nombre.setText(null);
-                interfaznueva.tf_consultas_precio.setText(null);
-                interfaznueva.tf_consultas_codigo.grabFocus();
-            break;
+            
         }  
     }
     
